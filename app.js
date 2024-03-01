@@ -1,8 +1,10 @@
+const express = require("express");
+const PORT = 3000
+const connection= require('./src/db');
+const UserModel = require('./src/modelos/usermodel');
 
-const connectDB = require('./src/db');
-const UserModel = require('./userModel');
-
-connectDB();
+const app = express();
+connection();
 
 
 const createUser = async (tarea) => {
@@ -65,5 +67,5 @@ const CRUD = {
   deleteUserById,
   updateUser,
 };
-
+app.listen(PORT, ()=>{console.log("el servidor esta funcionando en el:",PORT)})
 module.exports = CRUD;
