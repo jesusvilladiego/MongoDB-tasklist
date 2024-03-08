@@ -5,12 +5,10 @@ dotenv.config();
 
 const URI = process.env.URI;
 
-
-
-const connectDB = async () => {
+const connection = async () => {
   
     try {
-const db =   await mongoose.connect(MONGO_URI);
+const db =   await mongoose.connect(URI);
    
     console.log('Connected to MongoDB Atlas');
     return db;
@@ -20,6 +18,6 @@ const db =   await mongoose.connect(MONGO_URI);
 };
 
 
-module.exports = connectDB;
+module.exports = connection;
 
   
